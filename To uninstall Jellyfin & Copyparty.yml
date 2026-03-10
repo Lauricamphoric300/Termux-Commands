@@ -5,7 +5,7 @@ echo -e "\e[1;31m====================================================\e[0m\n"
 # Stop apps and remove scripts/aliases
 pkill -9 -f "dotnet|python" && rm -f ~/.termux/boot/start-services.sh && sed -i '/# .NET Environment/,/alias status/d' ~/.bashrc
 
-# Deep clean hidden data
+# Deep clean: Remove Jellyfin configs, database, and Copyparty settings
 rm -rf ~/.config/jellyfin ~/.local/share/jellyfin ~/.cache/jellyfin ~/.config/copyparty
 
 source ~/.bashrc
