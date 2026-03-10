@@ -1,0 +1,15 @@
+echo -e "\n\e[1;31m====================================================\e[0m"
+echo -e "\e[1;33m        Uninstalling Jellyfin & Copyparty...        \e[0m"
+echo -e "\e[1;31m====================================================\e[0m\n"
+
+# Stop apps and remove scripts/aliases
+pkill -9 -f "dotnet|python" && rm -f ~/.termux/boot/start-services.sh && sed -i '/# .NET Environment/,/alias status/d' ~/.bashrc
+
+# Deep clean hidden data
+rm -rf ~/.config/jellyfin ~/.local/share/jellyfin ~/.cache/jellyfin ~/.config/copyparty
+
+source ~/.bashrc
+
+echo -e "\n\e[1;32m✅ Deep Cleanup Complete\!\e[0m"
+echo -e "\e[1;37mAll apps, scripts, and leftover data have been removed.\e[0m"
+echo -e "\e[1;37mTermux is now in a fresh install state.\e[0m\n"
