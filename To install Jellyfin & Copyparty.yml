@@ -2,14 +2,16 @@ echo -e "\n\e[1;36m====================================================\e[0m"
 echo -e "\e[1;33m  One click install of Jellyfin & Copyparty is starting  \e[0m"
 echo -e "\e[1;36m====================================================\e[0m\n"
 
-# Update, add repo, and refresh again to find dotnet-sdk
+# 1. Update system and add necessary repositories
 pkg update -y && pkg upgrade -y && pkg install tur-repo -y && pkg update -y
+
+# 2. Install all required packages (Dotnet, Python, Tools)
 pkg install dotnet-sdk python iproute2 procps nano -y
 
-# Bypass the (y/n) prompt for storage setup
+# 3. Automated storage setup (bypasses y/n prompt)
 echo "y" | termux-setup-storage
 
-# Create the boot script
+# 4. Create the automated boot script
 mkdir -p ~/.termux/boot
 cat <<EOF > ~/.termux/boot/start-services.sh
 #!/data/data/com.termux/files/usr/bin/sh
@@ -20,10 +22,11 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 export DOTNET_GCHeapHardLimit=500000000
 dotnet /data/data/com.termux/files/usr/lib/jellyfin/jellyfin.dll --ffmpeg /data/data/com.termux/files/usr/bin/ffmpeg &
 sleep 15
+# Internal Storage mapping for Copyparty
 python3 -m copyparty -v /storage/emulated/0:/root:rwad,admin -a admin:password -e2dsa &
 EOF
 
-# Set permissions and aliases
+# 5. Make script executable and configure Aliases
 chmod +x ~/.termux/boot/start-services.sh
 sed -i '/# .NET Environment/,/alias status/d' ~/.bashrc
 cat <<EOF >> ~/.bashrc
@@ -36,17 +39,17 @@ alias down='pkill -9 -f "dotnet|python"'
 alias status='pgrep -fl "dotnet|python"'
 EOF
 
-# Start services and show info
+# 6. Final Activation and IP Detection
 source ~/.bashrc
 echo -e "\e[1;32mStarting services for the first time...\e[0m"
 nohup bash ~/.termux/boot/start-services.sh > /dev/null 2>&1 &
 sleep 5
-MY_IP=$(ip route get 1.1.1.1 2>/dev/null | grep -oP 'src \K\S+')
-[ -z "$MY_IP" ] && MY_IP="127.0.0.1"
+MY_IP=\$(ip route get 1.1.1.1 2>/dev/null | grep -oP 'src \K\S+')
+[ -z "\$MY_IP" ] && MY_IP="127.0.0.1"
 
 echo -e "\n\e[1;32m✅ Setup Complete & Apps are now RUNNING\!\e[0m"
 echo -e "\n\e[1;34mAccess your apps here:\e[0m"
-echo -e "\e[1;37mJellyfin:  http://$MY_IP:8096\e[0m"
-echo -e "\e[1;37mCopyparty: http://$MY_IP:3923 (Login: admin / Password: password)\e[0m"
+echo -e "\e[1;37mJellyfin:  http://\$MY_IP:8096\e[0m"
+echo -e "\e[1;37mCopyparty: http://\$MY_IP:3923 (Login: admin / Password: password)\e[0m"
 echo -e "\n\e[1;33mCommands to remember:\e[0m"
 echo -e "\e[1;37m'up' to start | 'down' to stop | 'status' to check\e[0m\n"
