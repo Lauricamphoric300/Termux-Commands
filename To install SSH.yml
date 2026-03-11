@@ -1,0 +1,39 @@
+🔑 Step-by-Step Setup Guide
+
+1. Install OpenSSH
+Open Termux and run:
+pkg update && pkg upgrade
+pkg install openssh
+
+This installs both the SSH client and the SSH server (`sshd`).
+
+2. Set a Password
+SSH requires a password for login. Run:
+passwd
+
+This sets the password for the default Termux user (`u0_aXXX`, depending on your device).
+
+3. Start the SSH Server
+Launch the SSH daemon:
+sshd
+
+Optionally, keep the server alive even when the phone sleeps:
+termux-wake-lock
+
+This prevents Termux from being killed in the background.
+
+4. Find Your Phone’s IP Address
+Run:
+ifconfig
+
+or
+ip addr show
+
+Look for your Wi-Fi interface (usually `wlan0`) and note the **inet address** (e.g., `192.168.0.105`).
+
+5. Connect from Another Device
+On your PC or another phone, run:
+ssh username@192.168.0.105 -p 8022
+
+- **username** = your Termux user (check with `whoami` in Termux).
+- **port** = Termux’s SSH server defaults to **8022**, not 22.
