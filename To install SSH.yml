@@ -10,7 +10,7 @@ echo -e "\nConnect from another device using:\n\e[1;33mssh $(whoami)@$(ip addr s
 ############################################################################
 ############################################################################
 
-🔑 Step-by-Step Setup Guide
+🔑 OR/ Step-by-Step Setup Guide:
 
 1. Install OpenSSH
 Open Termux and run:
