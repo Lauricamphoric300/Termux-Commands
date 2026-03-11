@@ -1,3 +1,15 @@
+🔑 One Click installation:
+
+pkg update && pkg upgrade -y && \
+pkg install openssh -y && clear && \
+echo -e "\e[1;34m####################################\n#        SSH IS INSTALLING         #\n####################################\e[0m" && \
+termux-wake-lock && passwd && sshd && clear && \
+echo -e "\e[1;32mINSTALLATION DONE!\e[0m" && \
+echo -e "\nConnect from another device using:\n\e[1;33mssh $(whoami)@$(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) -p 8022\e[0m"
+
+############################################################################
+############################################################################
+
 🔑 Step-by-Step Setup Guide
 
 1. Install OpenSSH
