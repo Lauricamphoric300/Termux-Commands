@@ -1,6 +1,6 @@
 ![Dashboard](Photos/Dashboard.png)
 
-**INSTRUCTIONS**
+**How to setup**
 
 Download & install Termux from F-Droid - 
 https://f-droid.org/en/packages/com.termux
