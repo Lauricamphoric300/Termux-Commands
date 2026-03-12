@@ -13,6 +13,7 @@ Use SSH from PC to connect to your android device. Then use the install command.
 
   
 **After Installation**
+- Wait 5 min for the apps to initialize
 - Create 'Movies/Music' folders via Copyparty
 - Add those folder as Library on Jellyfin
 - Add Copyparty's WebDav as a Virtual Drive in Windows
